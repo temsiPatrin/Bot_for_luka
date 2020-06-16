@@ -6,7 +6,7 @@
         "action": {
           "type": "text",
           "payload": "{\"button\": \"2\"}",
-          "label": "Black silver"
+          "label": "Коричневый"
         },
         "color": "primary"
       },
@@ -24,24 +24,6 @@
         "action": {
           "type": "text",
           "payload": "{\"button\": \"2\"}",
-          "label": "Серый"
-        },
-        "color": "primary"
-      },
-      {
-        "action": {
-          "type": "text",
-          "payload": "{\"button\": \"2\"}",
-          "label": "Черный"
-        },
-        "color": "primary"
-      }
-    ],
-    [
-      {
-        "action": {
-          "type": "text",
-          "payload": "{\"button\": \"1\"}",
           "label": "В начало"
         },
         "color": "negative"
