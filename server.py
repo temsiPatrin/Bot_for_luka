@@ -1,3 +1,4 @@
+#импорт библиотек
 import vk_api.vk_api
 
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
@@ -7,21 +8,19 @@ from commander import Commander
 
 class Server:
     def __init__(self, api_token, group_id, server_name: str = "noname"):
-        self.server_name = server_name
-        self.vk = vk_api.VkApi(token=api_token)
+        self.server_name = server_name #имя сервера
+        self.vk = vk_api.VkApi(token=api_token)#подкключаеться к группе через токен
         self.long_poll = VkBotLongPoll(self.vk, group_id)
         self.vk_api = self.vk.get_api()
         print("Сервер " + self.server_name + " запущен!")
         self.users = {}
 
-    def send_msg(self, send_id, message, keyB):
+    def send_msg(self, send_id, l):
         self.vk_api.messages.send(peer_id=send_id,
-                                  message=message,
+                                  message=l[1],
                                   random_id=get_random_id(),
-                                  keyboard=open("keyboards/" + keyB + ".json", "r", encoding="UTF-8").read())
+                                  keyboard=open("keyboards/" + l[0] + ".json", "r", encoding="UTF-8").read())
 
-    def test(self, id):
-        self.send_msg(id, "Testing")
 
     def start(self):
         for event in self.long_poll.listen():
@@ -30,8 +29,7 @@ class Server:
                     self.users[event.object.from_id] = Commander()
 
                 self.send_msg(event.object.peer_id,
-                              self.users[event.object.from_id].reMsg(event.object.text),
-                              self.users[event.object.from_id].reKeyboard(event.object.text))
+                              self.users[event.object.from_id].reKeyAndMsg(event.object.text))
 
     def get_user_name(self, user_id):
         return self.vk_api.users.get(user_id=user_id)[0]['first_name']

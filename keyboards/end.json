@@ -6,15 +6,17 @@
         "action": {
           "type": "text",
           "payload": "{\"button\": \"2\"}",
-          "label": "Коричневый"
+          "label": "Хочу заказать и связаться с менеджером"
         },
-        "color": "primary"
-      },
+        "color": "positive"
+      }
+    ],
+    [
       {
         "action": {
           "type": "text",
           "payload": "{\"button\": \"2\"}",
-          "label": "Белый"
+          "label": "Хочу изменить параметры сетки"
         },
         "color": "primary"
       }

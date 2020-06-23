@@ -1,4 +1,4 @@
 {
-  "onetime": true,
+  "one_time": false,
   "buttons": []
-}
+ }
