@@ -64,8 +64,11 @@ class Commander:
 
 
     def priceNet(self, s1:str, s2:str):
-        w = int(s1)/1000
-        h = int(s2)/1000
+        try:
+            w = int(s1)/1000
+            h = int(s2)/1000
+        except Exception as e:
+            return "Некорректные размеры окна, не могу посчитать цену"
 
         if w > 5 or w <= 0 or h > 5 or h <= 0:
             return "Некорректные размеры окна, не могу посчитать цену"
