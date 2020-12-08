@@ -53,19 +53,17 @@ class Commander:
             self.width = text
             self.last_msg = "конец"
             message = "Хорошо\n" \
-                      "Цвет полотна: " +self.color_canvas + "\n" \
+                      "Цвет полотна: " + self.color_canvas + "\n" \
                       "Цвет корпуса: " + self.color_korpus + "\n" \
-                      "Высота и ширина: " + self.height +"мм, " + self.width + "мм\n" \
-                      "Цена сетки: " + self.priceNet(self.width,self.height)
+                      "Высота и ширина: " + self.height + "мм, " + self.width + "мм\n" \
+                      "Цена сетки: " + self.priceNet(self.width, self.height)
             km = [keyboard, message]
             return km
-
-
         km = ["start", "Нажми на кнопку начать"]
         return km
 
 
-    def priceNet(self,s1:str,s2:str):
+    def priceNet(self, s1:str, s2:str):
         w = int(s1)/1000
         h = int(s2)/1000
 
